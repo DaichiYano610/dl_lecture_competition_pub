@@ -10,10 +10,7 @@ import torch
 import torch.nn as nn
 import torchvision
 from torchvision import transforms
-<<<<<<< HEAD
-from transformers import BertTokenizer
-=======
->>>>>>> c0d93399639dc3a404184bc707a22b2879ec0e98
+
 
 
 def set_seed(seed):
