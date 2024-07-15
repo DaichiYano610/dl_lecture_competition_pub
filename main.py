@@ -10,6 +10,7 @@ import torch
 import torch.nn as nn
 import torchvision
 from torchvision import transforms
+from transformers import BertTokenizer
 
 
 
