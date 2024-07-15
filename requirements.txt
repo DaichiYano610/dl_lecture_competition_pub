@@ -2,7 +2,4 @@ torch
 torchvision
 torchaudio
 pandas
-<<<<<<< HEAD
 transformers
-=======
->>>>>>> c0d93399639dc3a404184bc707a22b2879ec0e98
