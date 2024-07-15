@@ -77,7 +77,6 @@ class VQADataset(torch.utils.data.Dataset):
         self.idx2question = {}
         self.idx2answer = {}
 
-<<<<<<< HEAD
         self.tokenizer = BertTokenizer.from_pretrained("google-bert/bert-base-uncased")
 
         # 質問文に含まれる単語を辞書に追加
@@ -85,12 +84,11 @@ class VQADataset(torch.utils.data.Dataset):
             question = process_text(question)
             #words = question.split(" ")
             words = self.tokenizer.tokenize(question)
-=======
+
         # 質問文に含まれる単語を辞書に追加
         for question in self.df["question"]:
             question = process_text(question)
             words = question.split(" ")
->>>>>>> c0d93399639dc3a404184bc707a22b2879ec0e98
             for word in words:
                 if word not in self.question2idx:
                     self.question2idx[word] = len(self.question2idx)
