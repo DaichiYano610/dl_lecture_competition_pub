@@ -1,0 +1,1 @@
+docker build -t dl_lecture_yano23 .

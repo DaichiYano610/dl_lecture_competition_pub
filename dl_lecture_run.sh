@@ -1,0 +1,1 @@
+docker run -it --gpus all -v $PWD:/workspace -w /workspace dl_lecture_yano23 bash
