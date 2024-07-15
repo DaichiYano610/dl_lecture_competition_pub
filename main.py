@@ -320,11 +320,7 @@ class VQAModel(nn.Module):
 
 
 # 4. 学習の実装
-<<<<<<< HEAD
 def train(model, dataloader, optimizer, criterion, device, train_dataset):
-=======
-def train(model, dataloader, optimizer, criterion, device):
->>>>>>> c0d93399639dc3a404184bc707a22b2879ec0e98
     model.train()
 
     total_loss = 0
@@ -337,7 +333,6 @@ def train(model, dataloader, optimizer, criterion, device):
             image.to(device), question.to(device), answers.to(device), mode_answer.to(device)
 
         pred = model(image, question)
-<<<<<<< HEAD
 
         """
         #確認用
@@ -348,8 +343,7 @@ def train(model, dataloader, optimizer, criterion, device):
             if i in train_dataset.idx2answer.keys() and i != 3:
                 print(f"{train_dataset.idx2answer[i]}")
         """
-=======
->>>>>>> c0d93399639dc3a404184bc707a22b2879ec0e98
+
         loss = criterion(pred, mode_answer.squeeze())
 
         optimizer.zero_grad()
@@ -389,22 +383,17 @@ def main():
     # deviceの設定
     set_seed(42)
     device = "cuda" if torch.cuda.is_available() else "cpu"
-<<<<<<< HEAD
     print(f"device: {device}")
-=======
->>>>>>> c0d93399639dc3a404184bc707a22b2879ec0e98
+
 
     # dataloader / model
     transform = transforms.Compose([
         transforms.Resize((224, 224)),
-<<<<<<< HEAD
         #追加のデータ拡張
         transforms.RandomHorizontalFlip(p=1.0),
         transforms.RandomCrop(32, padding=(4, 4, 4, 4), padding_mode='constant'),
         transforms.ColorJitter(brightness=0.5, contrast=0.5, saturation=0.5),
         transforms.RandomRotation(degrees=(-180, 180)),
-=======
->>>>>>> c0d93399639dc3a404184bc707a22b2879ec0e98
         transforms.ToTensor()
     ])
     train_dataset = VQADataset(df_path="./data/train.json", image_dir="./data/train", transform=transform)
@@ -423,11 +412,7 @@ def main():
 
     # train model
     for epoch in range(num_epoch):
-<<<<<<< HEAD
         train_loss, train_acc, train_simple_acc, train_time = train(model, train_loader, optimizer, criterion, device,train_dataset)
-=======
-        train_loss, train_acc, train_simple_acc, train_time = train(model, train_loader, optimizer, criterion, device)
->>>>>>> c0d93399639dc3a404184bc707a22b2879ec0e98
         print(f"【{epoch + 1}/{num_epoch}】\n"
               f"train time: {train_time:.2f} [s]\n"
               f"train loss: {train_loss:.4f}\n"
